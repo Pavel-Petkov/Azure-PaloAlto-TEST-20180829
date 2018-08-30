@@ -44,16 +44,17 @@
   },
   "resources": [
     {
-      "name": "[concat(parameters('nicName'), '0')]",
+      "name": "[concat(parameters('nicName'), 'mgmt-nic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2017-10-01",
       "properties": {
         "ipConfigurations": [
           {
-            "name": "ipconfig-mgmt",
+            "name": "azuse2tpan01-mgmt-ipconfig",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "privateIPAllocationMethod": "Static",
+			  "privateIpAddress": "172.22.0.251"
               "publicIPAddress": {
                  "id": "[parameters('PublicIPResourceId')]"
               },
@@ -66,7 +67,7 @@
       }
     },
     {
-      "name": "[concat(parameters('nicName'), '1')]",
+      "name": "[concat(parameters('nicName'), 'untrust-nic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2017-10-01",
@@ -74,9 +75,10 @@
       "enableIPForwarding": true,
         "ipConfigurations": [
           {
-            "name": "ipconfig-untrust",
+            "name": "azuse2tpan01-untrust-ipconfig",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "privateIPAllocationMethod": "Static",
+			  "privateIpAddress": "172.22.2.51"
               "subnet": {
                 "id": "[variables('subnet1Ref')]"
               }
@@ -86,7 +88,7 @@
       }
     },
     {
-      "name": "[concat(parameters('nicName'), '2')]",
+      "name": "[concat(parameters('nicName'), 'trust-nic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2017-10-01",
@@ -94,9 +96,10 @@
         "enableIPForwarding": true,
         "ipConfigurations": [
           {
-            "name": "ipconfig-trust",
+            "name": "azuse2tpan01-trust-ipconfig",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "privateIPAllocationMethod": "Static",
+			  "privateIpAddress": "172.22.3.51"
               "subnet": {
                 "id": "[variables('subnet2Ref')]"
               }
