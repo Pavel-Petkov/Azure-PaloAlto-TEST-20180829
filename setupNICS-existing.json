@@ -54,7 +54,7 @@
             "name": "azuse2tpan01-mgmt-ipconfig",
             "properties": {
               "privateIPAllocationMethod": "Static",
-			  "privateIpAddress": "172.22.0.251"
+			  "privateIpAddress": "172.22.0.251",
               "publicIPAddress": {
                  "id": "[parameters('PublicIPResourceId')]"
               },
@@ -78,7 +78,7 @@
             "name": "azuse2tpan01-untrust-ipconfig",
             "properties": {
               "privateIPAllocationMethod": "Static",
-			  "privateIpAddress": "172.22.2.51"
+			  "privateIpAddress": "172.22.2.51",
               "subnet": {
                 "id": "[variables('subnet1Ref')]"
               }
@@ -99,7 +99,7 @@
             "name": "azuse2tpan01-trust-ipconfig",
             "properties": {
               "privateIPAllocationMethod": "Static",
-			  "privateIpAddress": "172.22.3.51"
+			  "privateIpAddress": "172.22.3.51",
               "subnet": {
                 "id": "[variables('subnet2Ref')]"
               }
